@@ -22,11 +22,11 @@ class TextFileLoader:
             )
 
     def load_pdf_file(self):
-        with fitz.open(self.path) as doc:
-            text = ""
-            for page in doc:
-                text += page.get_text()
-            self.documents.append(text)
+        document = fitz.open(self.path)
+        text = ""
+        for page in document:
+            text += page.get_text()
+        self.documents.append(text)
 
     def load_file(self):
         with open(self.path, "r", encoding=self.encoding) as f:
