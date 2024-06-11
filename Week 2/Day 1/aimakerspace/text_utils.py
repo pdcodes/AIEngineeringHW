@@ -27,7 +27,7 @@ class TextFileLoader:
             for page in doc:
                 text += page.get_text()
             self.documents.append(text)
-            
+
     def load_file(self):
         with open(self.path, "r", encoding=self.encoding) as f:
             self.documents.append(f.read())
@@ -49,7 +49,7 @@ class TextFileLoader:
 class CharacterTextSplitter:
     def __init__(
         self,
-        chunk_size: int = 1000,
+        chunk_size: int = 400,
         chunk_overlap: int = 200,
     ):
         assert (

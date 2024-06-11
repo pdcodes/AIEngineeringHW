@@ -3,6 +3,7 @@ from collections import defaultdict
 from typing import List, Tuple, Callable
 from aimakerspace.openai_utils.embedding import EmbeddingModel
 import asyncio
+import math
 
 
 def cosine_similarity(vector_a: np.array, vector_b: np.array) -> float:
@@ -12,6 +13,12 @@ def cosine_similarity(vector_a: np.array, vector_b: np.array) -> float:
     norm_b = np.linalg.norm(vector_b)
     return dot_product / (norm_a * norm_b)
 
+def euclidean_distance(vector1: np.array, vector2: np.array) -> float:
+    if len(vector1) != len(vector2):
+            raise ValueError("Vectors must be of the same length")
+        
+    distance = math.sqrt(sum((a - b) ** 2 for a, b in zip(vector1, vector2)))
+    return distance
 
 class VectorDatabase:
     def __init__(self, embedding_model: EmbeddingModel = None):
