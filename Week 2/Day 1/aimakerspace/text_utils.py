@@ -1,5 +1,6 @@
 import os
 from typing import List
+import fitz
 
 
 class TextFileLoader:
@@ -13,11 +14,20 @@ class TextFileLoader:
             self.load_directory()
         elif os.path.isfile(self.path) and self.path.endswith(".txt"):
             self.load_file()
+        elif os.path.isfile(self.path) and self.path.endswith(".pdf"):
+            self.load_pdf_file()
         else:
             raise ValueError(
-                "Provided path is neither a valid directory nor a .txt file."
+                "Provided path is neither a valid directory, a .pdf file, nor a .txt file."
             )
 
+    def load_pdf_file(self):
+        with fitz.open(self.path) as doc:
+            text = ""
+            for page in doc:
+                text += page.get_text()
+            self.documents.append(text)
+            
     def load_file(self):
         with open(self.path, "r", encoding=self.encoding) as f:
             self.documents.append(f.read())
