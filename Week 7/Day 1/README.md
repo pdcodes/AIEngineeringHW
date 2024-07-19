@@ -7,19 +7,11 @@ In the following Notebook we will be exploring one of the most powerful techniqu
 In this notebook, we'll worth through the following tasks:
 
 🤝 Breakout Room #1:
-Dependencies and Boilerplate
-Loading Data
-Constructing a Fine-tuning Dataset
-Fine-tuning snowflake-arctic-embed-m
-Evaluating our Retriever
-  
-- 🤝 Breakout Room #2:
-  - Part 1: LangSmith Evaluator:
-    1. Creating an Evaluation Dataset
-    2. Adding Evaluators
-  - Part 2:
-    3. Adding Helpfulness Check and "Loop" Limits
-    4. LangGraph for the "Patterns" of GenAI
+- Dependencies and Boilerplate
+- Loading Data
+- Constructing a Fine-tuning Dataset
+- Fine-tuning snowflake-arctic-embed-m
+- Evaluating our Retriever
     
 The notebook Colab link is located [here](https://colab.research.google.com/drive/1epiYz6iWUBEMjvqbGfh2cfsmYSzhuQ90?usp=sharing)
 
